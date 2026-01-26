@@ -3,6 +3,8 @@
 
 <h1>JanusVLN: Decoupling Semantics and Spatiality with Dual Implicit Memory for Vision-Language Navigation</h1>
 
+<h1 align="center"><strong>🎉🎉ICLR 2026🎉🎉</strong></h1>
+
 [Shuang Zeng](https://scholar.google.com/citations?user=91lbdPcAAAAJ&hl=zh-CN)<sup>1,2</sup>,
 [Dekang Qi](https://scholar.google.com/citations?user=fOU1xMAAAAAJ&hl=zh-CN&oi=ao)<sup>1</sup>,
 [Xinyuan Chang](https://scholar.google.com.hk/citations?user=5OnPBVYAAAAJ&hl=zh-CN)<sup>1</sup>,
