@@ -1,0 +1,9 @@
+# Don't copy large data/model directories into the image
+data/
+models/
+evaluation/
+.git/
+__pycache__/
+*.pyc
+*.pyo
+assets/

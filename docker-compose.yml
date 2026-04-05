@@ -1,0 +1,28 @@
+services:
+  janusvln:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: janusvln:latest
+    container_name: janusvln
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=0
+      - MAGNUM_LOG=quiet
+      - GLOG_minloglevel=2
+      - HABITAT_SIM_LOG=quiet
+    shm_size: "8g"
+    volumes:
+      # Data & models mounted from host (avoid copying into image)
+      - ./data:/workspace/JanusVLN/data
+      - ./models:/workspace/JanusVLN/models
+      - ./evaluation:/workspace/JanusVLN/evaluation
+      # Mount source code for live editing (optional, comment out for production)
+      - ./src:/workspace/JanusVLN/src
+      - ./config:/workspace/JanusVLN/config
+      - ./scripts:/workspace/JanusVLN/scripts
+    stdin_open: true
+    tty: true
+    working_dir: /workspace/JanusVLN
+    # Default: interactive bash shell
+    command: bash

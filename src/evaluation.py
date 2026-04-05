@@ -249,20 +249,37 @@ class VLNEvaluator:
 
 
 class JanusVLN_Inference:
-    def __init__(self, pretrained, device="cuda"):
+    def __init__(self, pretrained, device="cuda", quantize_4bit=False):
         config = AutoConfig.from_pretrained(pretrained)
-        self.model = Qwen2_5_VLForConditionalGenerationForJanusVLN.from_pretrained(
-            pretrained,
+
+        load_kwargs = dict(
             config=config,
             torch_dtype=torch.bfloat16,
-            device_map={"": device},
             attn_implementation="flash_attention_2",
-            mode='evaluation'
+            mode='evaluation',
+        )
+
+        if quantize_4bit:
+            from transformers import BitsAndBytesConfig
+            load_kwargs["quantization_config"] = BitsAndBytesConfig(
+                load_in_4bit=True,
+                bnb_4bit_compute_dtype=torch.bfloat16,
+                bnb_4bit_use_double_quant=True,
+                bnb_4bit_quant_type="nf4",
+            )
+            # With quantization, use "auto" device_map for proper offloading
+            load_kwargs["device_map"] = "auto"
+            print("[INFO] Loading model with 4-bit quantization (NF4)")
+        else:
+            load_kwargs["device_map"] = {"": device}
+
+        self.model = Qwen2_5_VLForConditionalGenerationForJanusVLN.from_pretrained(
+            pretrained, **load_kwargs
         ).eval()
-        
+
         self.tokenizer = AutoTokenizer.from_pretrained(pretrained, padding_side="left")
         self.processor = AutoProcessor.from_pretrained(pretrained, max_pixels=max_pixels, min_pixels=min_pixels, padding_side="left")
-        
+
         self.device = device
 
 
@@ -413,14 +430,16 @@ def eval():
     parser.add_argument('--max_steps', default=400, type=int,
                         help='max_steps')
     parser.add_argument("--seed", type=int, default=42, help="Random seed for reproducibility")
+    parser.add_argument("--quantize_4bit", action="store_true", default=False,
+                        help="Load model in 4-bit quantization (for GPUs with limited VRAM, e.g. 8GB)")
 
-    
+
     args = parser.parse_args()
     set_seed(args.seed)
     init_distributed_mode(args)
     local_rank = args.local_rank
 
-    model = JanusVLN_Inference(args.model_path, device=f"cuda:{local_rank}")
+    model = JanusVLN_Inference(args.model_path, device=f"cuda:{local_rank}", quantize_4bit=args.quantize_4bit)
 
     evaluate(model, args)
 
