@@ -8,7 +8,7 @@ ENV PYTHONUNBUFFERED=1
 
 # System dependencies
 RUN apt-get update && apt-get install -y \
-    git wget curl build-essential cmake \
+    git wget curl build-essential cmake ninja-build \
     libgl1-mesa-glx libgl1-mesa-dri libglib2.0-0 libegl1-mesa \
     libsm6 libxext6 libxrender1 \
     libbullet-dev \
@@ -21,8 +21,10 @@ RUN wget -q https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.s
     && rm /tmp/miniconda.sh
 ENV PATH="/opt/conda/bin:$PATH"
 
-# Create conda environment with Python 3.9
-RUN conda create -n janusvln python=3.9 -y
+# Accept Conda ToS and create environment
+RUN conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main \
+    && conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r \
+    && conda create -n janusvln python=3.9 -y
 
 # Use conda run for all subsequent commands
 SHELL ["conda", "run", "--no-capture-output", "-n", "janusvln", "/bin/bash", "-c"]
@@ -30,12 +32,18 @@ SHELL ["conda", "run", "--no-capture-output", "-n", "janusvln", "/bin/bash", "-c
 # Habitat-sim 0.2.4 headless (no display needed)
 RUN conda install habitat-sim=0.2.4 withbullet headless -c conda-forge -c aihabitat -y
 
-# PyTorch 2.5.1 + CUDA 12.4
+# PyTorch 2.5.1 + CUDA 12.4 (MUST be installed before flash-attn)
 RUN pip install torch==2.5.1 torchvision==0.20.1 --index-url https://download.pytorch.org/whl/cu124
 
-# Project Python dependencies
+# flash-attn: compile from source (no prebuilt wheel for Python 3.9)
+# Must come AFTER torch. Install build deps first, use ninja for parallel compilation.
+RUN pip install psutil ninja packaging \
+    && MAX_JOBS=8 pip install flash-attn --no-build-isolation
+
+# Project Python dependencies (flash-attn excluded, already installed above)
 COPY requirements.txt /tmp/requirements.txt
-RUN pip install -r /tmp/requirements.txt
+RUN grep -v '^flash-attn' /tmp/requirements.txt > /tmp/requirements_no_flash.txt \
+    && pip install -r /tmp/requirements_no_flash.txt
 
 # Additional dependencies for evaluation
 RUN pip install \

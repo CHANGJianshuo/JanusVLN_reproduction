@@ -13,7 +13,12 @@ Original repo: https://github.com/MIV-XJTU/JanusVLN
 | Disk | 945GB free | ~400GB+ |
 | CUDA Driver | 12.9 | 12.4 (compatible) |
 
-**Strategy:** Use Docker container with 4-bit quantization for local inference/evaluation. Rent cloud GPU (AutoDL A100) if local VRAM insufficient.
+**Critical Compatibility Issue:**
+RTX 5060 (Blackwell, sm_120) is NOT compatible with PyTorch 2.5.1 (max sm_90).
+PyTorch nightly with sm_120 support requires Python 3.12+, but habitat-sim 0.2.4 only supports Python 3.9.
+**Local GPU cannot run this project.** Must rent cloud GPU (A100/A6000, sm_80/sm_86).
+
+**Strategy:** Build Docker image locally, rent cloud GPU (e.g. AutoDL A100 40GB) for actual evaluation.
 
 ---
 
@@ -47,16 +52,18 @@ Original repo: https://github.com/MIV-XJTU/JanusVLN
 - ~~R2R/RxR training episodes~~ -- training only
 - ~~DAgger data~~ -- training only
 
-### Stage 5: Build & Test Docker Image -- TODO
-- [ ] `docker build -t janusvln:latest .`
-- [ ] Verify habitat-sim loads correctly inside container
-- [ ] Verify GPU passthrough works (nvidia-smi inside container)
+### Stage 5: Build & Test Docker Image -- DONE
+- [x] `docker build -t janusvln:latest .` (37.5GB image, all deps installed)
+- [x] Verify habitat-sim loads correctly inside container
+- [x] Verify GPU passthrough works (nvidia-smi inside container)
+- [x] **Found:** RTX 5060 (sm_120) incompatible with PyTorch 2.5.1 — must use cloud A100/A6000
 
-### Stage 6: Run Evaluation -- TODO
-- [ ] Load model (4-bit quantized) inside container
-- [ ] Run R2R val_unseen evaluation
+### Stage 6: Rent Cloud GPU & Run Evaluation -- TODO
+- [ ] Rent AutoDL A100 40GB instance
+- [ ] Push Docker image or rebuild on cloud
+- [ ] Transfer data (model weights + MP3D scenes + R2R episodes)
+- [ ] Run R2R val_unseen evaluation (no quantization needed on A100)
 - [ ] Compare metrics (SR, SPL, NDTW) with paper results
-- [ ] If OOM on 8GB: rent AutoDL A100, re-run without quantization
 
 ---
 
