@@ -35,9 +35,17 @@ Original repo: https://github.com/MIV-XJTU/JanusVLN
 - [x] Create `scripts/download_data.sh` (ModelScope model download + Google Drive R2R episodes + MP3D check)
 
 ### Stage 4: Download Data & Models -- TODO
+**Inference-only minimal download (~17GB total, vs ~300GB+ for training):**
 - [ ] Download pretrained weights: `misstl/JanusVLN_Extra` from ModelScope (~15GB)
-- [ ] Download R2R VLN-CE episodes from Google Drive
-- [ ] Download/place MP3D scene data (requires signed agreement, user has access)
+- [ ] Download R2R VLN-CE episodes from Google Drive (val_unseen split only needed)
+- [ ] Extract val_unseen scene list (script auto-parses episodes file)
+- [ ] Download only 11 MP3D scenes used in val_unseen (~2GB, not all 90 scenes)
+
+**NOT needed for inference:**
+- ~~Trajectory data (~50GB+)~~ -- training only
+- ~~ScaleVLN / HM3D scenes (~100GB+)~~ -- training only
+- ~~R2R/RxR training episodes~~ -- training only
+- ~~DAgger data~~ -- training only
 
 ### Stage 5: Build & Test Docker Image -- TODO
 - [ ] `docker build -t janusvln:latest .`
