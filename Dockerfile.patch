@@ -11,10 +11,6 @@ RUN python /tmp/patch_habitat_py312.py
 # Install missing dependencies not in original requirements.txt
 RUN pip install fastdtw networkx "tensorboard>=2.16"
 
-# Apply our patches (4-bit quantization support, etc.)
-COPY patches/ /tmp/patches/
-RUN cd /workspace/JanusVLN && git apply /tmp/patches/evaluation_quantize.patch || true
-
 # Copy our custom scripts
 COPY scripts/ /workspace/JanusVLN/scripts/
 

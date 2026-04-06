@@ -40,9 +40,11 @@ RUN pip install torch==2.5.1 torchvision==0.20.1 --index-url https://download.py
 RUN pip install psutil ninja packaging \
     && MAX_JOBS=8 pip install flash-attn --no-build-isolation
 
+# Clone original JanusVLN source code (early, to use its requirements.txt)
+RUN git clone --depth 1 https://github.com/MIV-XJTU/JanusVLN.git /workspace/JanusVLN
+
 # Project Python dependencies (flash-attn excluded, already installed above)
-COPY requirements.txt /tmp/requirements.txt
-RUN grep -v '^flash-attn' /tmp/requirements.txt > /tmp/requirements_no_flash.txt \
+RUN grep -v '^flash-attn' /workspace/JanusVLN/requirements.txt > /tmp/requirements_no_flash.txt \
     && pip install -r /tmp/requirements_no_flash.txt
 
 # Additional dependencies for evaluation
@@ -51,21 +53,21 @@ RUN pip install \
     opencv-python-headless \
     omegaconf \
     hydra-core \
-    bitsandbytes
+    bitsandbytes \
+    fastdtw
 
 # Install habitat-lab and habitat-baselines v0.2.4
 RUN pip install \
     git+https://github.com/facebookresearch/habitat-lab.git@v0.2.4#subdirectory=habitat-lab \
     git+https://github.com/facebookresearch/habitat-lab.git@v0.2.4#subdirectory=habitat-baselines
 
-# Clone original JanusVLN source code
-RUN git clone --depth 1 https://github.com/MIV-XJTU/JanusVLN.git /workspace/JanusVLN
+# Install JanusVLN project
 WORKDIR /workspace/JanusVLN
 RUN pip install -e .
 
 # Apply our patches (4-bit quantization support, etc.)
 COPY patches/ /tmp/patches/
-RUN git apply /tmp/patches/evaluation_quantize.patch
+RUN cd /workspace/JanusVLN && git apply /tmp/patches/evaluation_quantize.patch
 
 # Copy our custom scripts
 COPY scripts/ /workspace/JanusVLN/scripts/
