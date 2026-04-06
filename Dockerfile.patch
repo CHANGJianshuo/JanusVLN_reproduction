@@ -1,0 +1,23 @@
+# Patch existing rtx5060 image with Python 3.12 habitat fix
+FROM janusvln:rtx5060
+
+SHELL ["conda", "run", "--no-capture-output", "-n", "janusvln", "/bin/bash", "-c"]
+
+# Apply Python 3.12 dataclass patch to habitat-lab
+COPY scripts/patch_habitat_py312.py /tmp/patch_habitat_py312.py
+RUN python /tmp/patch_habitat_py312.py
+
+# Install missing dependencies not in requirements.txt
+RUN pip install fastdtw networkx "tensorboard>=2.16"
+
+# Re-copy project source (in case of updates)
+COPY . /workspace/JanusVLN
+WORKDIR /workspace/JanusVLN
+RUN pip install -e .
+
+ENV MAGNUM_LOG=quiet
+ENV GLOG_minloglevel=2
+ENV HABITAT_SIM_LOG=quiet
+
+ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "janusvln"]
+CMD ["bash"]

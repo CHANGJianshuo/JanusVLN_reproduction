@@ -42,9 +42,9 @@ RUN git clone --branch v0.2.4 --depth 1 https://github.com/facebookresearch/habi
 # PyTorch 2.10.0 stable with CUDA 12.8 (supports sm_120 / Blackwell)
 RUN pip install torch==2.10.0 torchvision==0.25.0 torchaudio==2.10.0 --index-url https://download.pytorch.org/whl/cu128
 
-# flash-attn: prebuilt wheel for Python 3.12
+# flash-attn: compile from source (needs torch installed first)
 RUN pip install psutil ninja packaging \
-    && pip install flash-attn --no-build-isolation
+    && MAX_JOBS=2 pip install flash-attn --no-build-isolation
 
 # Project Python dependencies (excluding flash-attn)
 COPY requirements.txt /tmp/requirements.txt
@@ -64,7 +64,12 @@ RUN pip install \
     "git+https://github.com/facebookresearch/habitat-lab.git@v0.2.4#subdirectory=habitat-lab" \
     "git+https://github.com/facebookresearch/habitat-lab.git@v0.2.4#subdirectory=habitat-baselines"
 
-# Copy project source code
+# Patch habitat-lab for Python 3.12 compatibility (mutable dataclass defaults)
+# This MUST be after habitat-lab install and before project code copy
+COPY scripts/patch_habitat_py312.py /tmp/patch_habitat_py312.py
+RUN python /tmp/patch_habitat_py312.py
+
+# Copy project source code (last to maximize cache hits)
 COPY . /workspace/JanusVLN
 WORKDIR /workspace/JanusVLN
 RUN pip install -e .
