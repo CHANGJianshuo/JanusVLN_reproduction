@@ -1,19 +1,24 @@
-# Patch existing rtx5060 image with Python 3.12 habitat fix
+# Patch existing rtx5060 image with Python 3.12 habitat fix + missing deps
+# Use this to quickly layer fixes without recompiling flash-attn
 FROM janusvln:rtx5060
 
 SHELL ["conda", "run", "--no-capture-output", "-n", "janusvln", "/bin/bash", "-c"]
 
-# Apply Python 3.12 dataclass patch to habitat-lab
+# Apply Python 3.12 dataclass patch to habitat-lab & habitat-baselines
 COPY scripts/patch_habitat_py312.py /tmp/patch_habitat_py312.py
 RUN python /tmp/patch_habitat_py312.py
 
-# Install missing dependencies not in requirements.txt
+# Install missing dependencies not in original requirements.txt
 RUN pip install fastdtw networkx "tensorboard>=2.16"
 
-# Re-copy project source (in case of updates)
-COPY . /workspace/JanusVLN
+# Apply our patches (4-bit quantization support, etc.)
+COPY patches/ /tmp/patches/
+RUN cd /workspace/JanusVLN && git apply /tmp/patches/evaluation_quantize.patch || true
+
+# Copy our custom scripts
+COPY scripts/ /workspace/JanusVLN/scripts/
+
 WORKDIR /workspace/JanusVLN
-RUN pip install -e .
 
 ENV MAGNUM_LOG=quiet
 ENV GLOG_minloglevel=2

@@ -64,15 +64,21 @@ RUN pip install \
     "git+https://github.com/facebookresearch/habitat-lab.git@v0.2.4#subdirectory=habitat-lab" \
     "git+https://github.com/facebookresearch/habitat-lab.git@v0.2.4#subdirectory=habitat-baselines"
 
-# Patch habitat-lab for Python 3.12 compatibility (mutable dataclass defaults)
-# This MUST be after habitat-lab install and before project code copy
+# Clone original JanusVLN source code
+RUN git clone --depth 1 https://github.com/MIV-XJTU/JanusVLN.git /workspace/JanusVLN
+WORKDIR /workspace/JanusVLN
+RUN pip install -e .
+
+# Patch habitat-lab & habitat-baselines for Python 3.12 compatibility
 COPY scripts/patch_habitat_py312.py /tmp/patch_habitat_py312.py
 RUN python /tmp/patch_habitat_py312.py
 
-# Copy project source code (last to maximize cache hits)
-COPY . /workspace/JanusVLN
-WORKDIR /workspace/JanusVLN
-RUN pip install -e .
+# Apply our patches (4-bit quantization support, etc.)
+COPY patches/ /tmp/patches/
+RUN git apply /tmp/patches/evaluation_quantize.patch
+
+# Copy our custom scripts
+COPY scripts/ /workspace/JanusVLN/scripts/
 
 # Suppress Habitat verbose logging
 ENV MAGNUM_LOG=quiet

@@ -58,10 +58,17 @@ RUN pip install \
     git+https://github.com/facebookresearch/habitat-lab.git@v0.2.4#subdirectory=habitat-lab \
     git+https://github.com/facebookresearch/habitat-lab.git@v0.2.4#subdirectory=habitat-baselines
 
-# Copy project source code
-COPY . /workspace/JanusVLN
+# Clone original JanusVLN source code
+RUN git clone --depth 1 https://github.com/MIV-XJTU/JanusVLN.git /workspace/JanusVLN
 WORKDIR /workspace/JanusVLN
 RUN pip install -e .
+
+# Apply our patches (4-bit quantization support, etc.)
+COPY patches/ /tmp/patches/
+RUN git apply /tmp/patches/evaluation_quantize.patch
+
+# Copy our custom scripts
+COPY scripts/ /workspace/JanusVLN/scripts/
 
 # Suppress Habitat verbose logging
 ENV MAGNUM_LOG=quiet

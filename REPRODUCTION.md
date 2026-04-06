@@ -71,14 +71,21 @@ PyTorch nightly with sm_120 support requires Python 3.12+, but habitat-sim 0.2.4
 
 | File | Status | Description |
 |------|--------|-------------|
-| `Dockerfile` | NEW | Full environment build |
+| `Dockerfile` | NEW | Full environment build (A100/cloud) |
+| `Dockerfile.rtx5060` | NEW | RTX 5060 (Blackwell sm_120) build |
+| `Dockerfile.patch` | NEW | Lightweight patch on existing image |
 | `.dockerignore` | NEW | Exclude large dirs from build |
 | `docker-compose.yml` | NEW | Container orchestration |
 | `scripts/docker_run.sh` | NEW | Manual container launch |
 | `scripts/eval_single_gpu.sh` | NEW | Single-GPU eval with --quantize |
 | `scripts/download_data.sh` | NEW | Automated data/model download |
-| `src/evaluation.py` | MODIFIED | Added 4-bit quantization support |
+| `scripts/download_weights.sh` | NEW | Model weights download with resume |
+| `scripts/patch_habitat_py312.py` | NEW | Auto-patch habitat for Python 3.12 |
+| `patches/evaluation_quantize.patch` | NEW | 4-bit quantization for evaluation.py |
+| `data/val_unseen_scenes.txt` | NEW | 11 scene IDs for val_unseen split |
 | `REPRODUCTION.md` | NEW | This file |
+
+**Note:** This repo contains only our reproduction infrastructure. The original JanusVLN source code is cloned from https://github.com/MIV-XJTU/JanusVLN inside the Docker build.
 
 ## Quick Start
 

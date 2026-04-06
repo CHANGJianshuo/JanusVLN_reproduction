@@ -2,8 +2,8 @@
 data/
 models/
 evaluation/
+MatterPort3D/
 .git/
 __pycache__/
 *.pyc
 *.pyo
-assets/

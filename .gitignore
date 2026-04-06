@@ -1,0 +1,23 @@
+# Original JanusVLN source (cloned inside Docker, not tracked here)
+src/
+config/
+create_data/
+assets/
+setup.py
+requirements.txt
+__init__.py
+
+# Data & models (too large for git)
+data/
+models/
+MatterPort3D/
+evaluation/
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+
+# OS
+.DS_Store
+*.Zone.Identifier
