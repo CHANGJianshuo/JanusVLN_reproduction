@@ -39,12 +39,12 @@ PyTorch nightly with sm_120 support requires Python 3.12+, but habitat-sim 0.2.4
 ### Stage 3: Data & Model Download Scripts -- DONE
 - [x] Create `scripts/download_data.sh` (ModelScope model download + Google Drive R2R episodes + MP3D check)
 
-### Stage 4: Download Data & Models -- TODO
-**Inference-only minimal download (~17GB total, vs ~300GB+ for training):**
-- [ ] Download pretrained weights: `misstl/JanusVLN_Extra` from ModelScope (~15GB)
-- [ ] Download R2R VLN-CE episodes from Google Drive (val_unseen split only needed)
-- [ ] Extract val_unseen scene list (script auto-parses episodes file)
-- [ ] Download only 11 MP3D scenes used in val_unseen (~2GB, not all 90 scenes)
+### Stage 4: Download Data & Models -- DONE
+**Inference-only minimal download (~19GB total, vs ~300GB+ for training):**
+- [x] Download pretrained weights: `misstl/JanusVLN_Extra` from ModelScope (~18GB)
+- [x] Download R2R VLN-CE episodes (all splits, 251MB)
+- [x] Extract val_unseen scene list (11 scenes)
+- [x] Download only 11 MP3D scenes used in val_unseen (663MB)
 
 **NOT needed for inference:**
 - ~~Trajectory data (~50GB+)~~ -- training only
@@ -58,11 +58,22 @@ PyTorch nightly with sm_120 support requires Python 3.12+, but habitat-sim 0.2.4
 - [x] Verify GPU passthrough works (nvidia-smi inside container)
 - [x] **Found:** RTX 5060 (sm_120) incompatible with PyTorch 2.5.1 — must use cloud A100/A6000
 
-### Stage 6: Rent Cloud GPU & Run Evaluation -- TODO
-- [ ] Rent AutoDL A100 40GB instance
-- [ ] Push Docker image or rebuild on cloud
-- [ ] Transfer data (model weights + MP3D scenes + R2R episodes)
-- [ ] Run R2R val_unseen evaluation (no quantization needed on A100)
+### Stage 6: Cloud GPU Evaluation Attempts -- IN PROGRESS
+
+#### 6a: RTX 3090 24GB (non-AutoDL) -- FAILED
+- [x] Rent RTX 3090 24GB instance
+- [x] Install full environment (conda, habitat-sim, PyTorch, flash-attn, etc.)
+- [x] Transfer all data (model weights, MP3D scenes, R2R episodes)
+- [x] Attempt bf16 evaluation — **OOM** (peak ~23GB > 24GB)
+- [x] Attempt 4-bit/8-bit quantization — **bitsandbytes incompatible with VGGT's DINOv2 ViT**
+- [x] **Conclusion: 3090 24GB insufficient. Minimum 40GB required.**
+- See `docs/cloud_gpu_log.md` for full details.
+
+#### 6b: A100 PCIe 40GB (AutoDL) -- TODO
+- [ ] Rent AutoDL A100 PCIe 40GB instance
+- [ ] Install environment (reuse validated install steps from 3090)
+- [ ] Transfer data from local machine
+- [ ] Run R2R val_unseen evaluation (bf16, no quantization needed)
 - [ ] Compare metrics (SR, SPL, NDTW) with paper results
 
 ---
@@ -83,6 +94,7 @@ PyTorch nightly with sm_120 support requires Python 3.12+, but habitat-sim 0.2.4
 | `scripts/patch_habitat_py312.py` | NEW | Auto-patch habitat for Python 3.12 |
 | `patches/evaluation_quantize.patch` | NEW | 4-bit quantization for evaluation.py |
 | `data/val_unseen_scenes.txt` | NEW | 11 scene IDs for val_unseen split |
+| `docs/cloud_gpu_log.md` | NEW | Cloud GPU work log (3090 attempts, A100 plan) |
 | `REPRODUCTION.md` | NEW | This file |
 
 **Note:** This repo contains only our reproduction infrastructure. The original JanusVLN source code is cloned from https://github.com/MIV-XJTU/JanusVLN inside the Docker build.
