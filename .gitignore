@@ -12,6 +12,7 @@ data/
 models/
 MatterPort3D/
 evaluation/
+evaluation_30/vis_0/*.mp4
 
 # Python
 __pycache__/

@@ -1,0 +1,434 @@
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Neither `ifconfig` (`ifconfig -a`) nor `ip` (`ip address show`) commands are available, listing network interfaces is likely to fail
+| distributed init (rank 0): env://, gpu 0
+[W407 09:25:05.842949559 CUDAAllocatorConfig.h:28] Warning: expandable_segments not supported on this platform (function operator())
+[rank0]:[W407 09:25:05.056158517 ProcessGroupNCCL.cpp:4115] [PG ID 0 PG GUID 0 Rank 0]  using GPU 0 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect.Specify device_ids in barrier() to force use of a particular device,or call init_process_group() with a device_id.
+[09:25:06.179089] StartRecentKVCache: 8, 48
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:03<00:09,  3.28s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:05<00:05,  2.68s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:07<00:02,  2.48s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.12s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.34s/it]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.50, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+2026-04-07 09:25:17,495 Initializing dataset R2RVLN-v1
+2026-04-07 09:25:17,501 initializing sim Sim-v0
+2026-04-07 09:25:23,813 Initializing task VLN-v0
+[09:25:23.816603] in oracle success init: args = (), kwargs = {'sim': HabitatSim(config=Configuration(sim_cfg=<habitat_sim._ext.habitat_sim_bindings.SimulatorConfiguration object at 0x7fc15019f6b0>, agents=[AgentConfiguration(height=1.5, radius=0.1, sensor_specifications=[<habitat_sim._ext.habitat_sim_bindings.CameraSensorSpec object at 0x7fc0ecc03ef0>, <habitat_sim._ext.habitat_sim_bindings.CameraSensorSpec object at 0x7fc0ecc03cc0>], action_space={0: ActionSpec(name='stop', actuation=None), 1: ActionSpec(name='move_forward', actuation=ActuationSpec(amount=0.25, constraint=None)), 2: ActionSpec(name='turn_left', actuation=ActuationSpec(amount=15, constraint=None)), 3: ActionSpec(name='turn_right', actuation=ActuationSpec(amount=15, constraint=None))}, body_type='cylinder')], metadata_mediator=None, enable_batch_renderer=False), agents=[Agent(agent_config=AgentConfiguration(height=1.5, radius=0.1, sensor_specifications=[<habitat_sim._ext.habitat_sim_bindings.CameraSensorSpec object at 0x7fc0ecc03ef0>, <habitat_sim._ext.habitat_sim_bindings.CameraSensorSpec object at 0x7fc0ecc03cc0>], action_space={0: ActionSpec(name='stop', actuation=None), 1: ActionSpec(name='move_forward', actuation=ActuationSpec(amount=0.25, constraint=None)), 2: ActionSpec(name='turn_left', actuation=ActuationSpec(amount=15, constraint=None)), 3: ActionSpec(name='turn_right', actuation=ActuationSpec(amount=15, constraint=None))}, body_type='cylinder'), _sensors={'rgb': <habitat_sim._ext.habitat_sim_bindings.CameraSensor object at 0x7fc0ecd4c2b0>, 'depth': <habitat_sim._ext.habitat_sim_bindings.CameraSensor object at 0x7fc0ecd4c1f0>}, controls=ObjectControls(move_filter_fn=<bound method Simulator.step_filter of ...>), body=<_magnum.scenegraph.AbstractFeature3D object at 0x7fc0ecd4cf30>)], _num_total_frames=0, _default_agent_id=0, _Simulator__sensors=[{'rgb': <habitat_sim.simulator.Sensor object at 0x7fc0ec72cfa0>, 'depth': <habitat_sim.simulator.Sensor object at 0x7fc0ee82d970>}], _initialized=True, _previous_step_time=0.0, _async_draw_agent_ids=None, _Simulator__last_state={0: AgentState(position=array([13.038906  ,  0.12710899,  0.37448758], dtype=float32), rotation=quaternion(1, 0, 2.45858027483337e-05, 0), sensor_states={'rgb': SixDOFPose(position=array([13.038906  ,  1.377109  ,  0.37448758], dtype=float32), rotation=quaternion(1, 0, 2.45858027483337e-05, 0)), 'depth': SixDOFPose(position=array([13.038906  ,  1.377109  ,  0.37448758], dtype=float32), rotation=quaternion(1, 0, 2.45858027483337e-05, 0))})}), 'dataset': <habitat.datasets.vln.r2r_vln_dataset.VLNDatasetV1 object at 0x7fc0ecc8a370>, 'task': <habitat.tasks.vln.vln.VLNTask object at 0x7fc0ec7ba2e0>}
+[09:25:23.823130] scene_id = 2azQ1b91cZZ
+scene 2azQ1b91cZZ:   0%|          | 0/3 [00:00<?, ?it/s][09:25:23.823855] episode start:  Walk into the living room and keep walking straight past the living room. Then walk into the entrance under the balcony. Wait in the entrance to the other room. 
+[09:25:26.576978] [09:25:26.577061] [09:25:26.577078] [09:25:26.577090] [09:25:26.577101] [09:25:26.577111] [09:25:26.577122] [09:25:26.577144] [09:25:26.577155] [09:25:26.577170] [09:25:26.577177] [09:25:26.577195] [09:25:26.577209] [09:25:26.577223] [09:25:26.577233] [09:25:26.577245] [09:25:26.577252] [09:25:26.577262] [09:25:26.577281] [09:25:26.577307] [09:25:26.577324] [09:25:26.577337] [09:25:26.577352] [09:25:26.577375] [09:25:26.577412] [09:25:26.577427] [09:25:26.577441] [09:25:26.577463] [09:25:26.577489] [09:25:26.577508] [09:25:26.577532] [09:25:26.577550] [09:25:26.577568] [09:25:26.577612] [09:25:26.577623] [09:25:26.577630] [09:25:26.577643] [09:25:26.577657] [09:25:26.577669] [09:25:26.593772] [09:25:26.593825] [09:25:26.593839] [09:25:26.593854] [09:25:26.593893] [09:25:26.593909] [09:25:26.593921] [09:25:26.611016] [09:25:26.611066] [09:25:26.611081] [09:25:26.611092] [09:25:26.611116] [09:25:26.611152] [09:25:26.611168] [09:25:26.611179] [09:25:26.621027] [09:25:26.621071] [09:25:26.621085] [09:25:26.621097] [09:25:26.621110] [09:25:26.621148] [09:25:26.621164] [09:25:26.621176] [09:25:26.689351] [09:25:26.689412] [09:25:26.689427] [09:25:26.689439] [09:25:26.689449] [09:25:26.689464] [09:25:26.689505] [09:25:26.689521] [09:25:26.689532] [09:25:26.689544] [09:25:26.689550] [09:25:26.689564] [09:25:26.689588] [09:25:26.689602] [09:25:26.689612] [09:25:26.689624] [09:25:26.689630] [09:25:26.689640] [09:25:26.689654] [09:25:26.689671] [09:25:26.689687] [09:25:26.689698] [09:25:26.689707] [09:25:26.689719] [09:25:26.689739] [09:25:26.689751] [09:25:26.689777] [09:25:26.689789] [09:25:26.689795] [09:25:26.689809] [09:25:26.689820] [09:25:26.689835] [09:25:26.689854] [09:25:26.689865] [09:25:26.689889] [09:25:26.689900] [09:25:26.689907] [09:25:26.689916] [09:25:26.689922] [09:25:26.689934] [09:25:26.689951] [09:25:26.689962] [09:25:26.689985] [09:25:26.689996] [09:25:26.690002] [09:25:26.690016] [09:25:26.690026] [09:25:26.690042] [09:25:26.690060] [09:25:26.690071] [09:25:26.690094] [09:25:26.690105] [09:25:26.690111] [09:25:26.690120] [09:25:26.690127] [09:25:26.690145] [09:25:26.690161] [09:25:26.690181] [09:25:26.690196] [09:25:26.690213] [09:25:26.690224] [09:25:26.690247] [09:25:26.690258] [09:25:26.690264] [09:25:26.690273] [09:25:26.690279] [09:25:26.690290] [09:25:26.690307] [09:25:26.690319] [09:25:26.690328] [09:25:26.690334] [09:25:26.690345] [09:25:26.690358] [09:25:26.690368] [09:25:26.716157] [09:25:26.716222] [09:25:26.716237] [09:25:26.716250] [09:25:26.716260] [09:25:26.716292] [09:25:26.716309] [09:25:26.716329] [09:25:26.716345] [09:25:26.716355] [09:25:26.716365] [09:25:26.716379] [09:25:26.716395] [09:25:26.716410] [09:25:26.716420] [09:25:26.716430] [09:25:26.716450] [09:25:26.716465] [09:25:26.716481] [09:25:26.716496] [09:25:26.716506] [09:25:26.716516] [09:25:26.716527] [09:25:26.716544] [09:25:26.716556] [09:25:26.716595] [09:25:26.716608] [09:25:26.716615] [09:25:26.716627] [09:25:26.716648] [09:25:26.716658] [09:25:26.716668] [09:25:26.716686] [09:25:26.716697] [09:25:26.716707] [09:25:26.716714] [09:25:26.716725] [09:25:26.716743] [09:25:26.716754] [09:25:26.716779] [09:25:26.716800] [09:25:26.716806] [09:25:26.716817] [09:25:26.716835] [09:25:26.716845] [09:25:26.716856] [09:25:26.716873] [09:25:26.716884] [09:25:26.716893] [09:25:26.716899] [09:25:26.716918] [09:25:26.716934] [09:25:26.716944] [09:25:26.716962] [09:25:26.716972] [09:25:26.716989] [09:25:26.716999] [09:25:26.717009] [09:25:26.717025] [09:25:26.717036] [09:25:26.717060] [09:25:26.717071] [09:25:26.717077] [09:25:26.717087] [09:25:26.717097] [09:25:26.717108] [09:25:26.717118] [09:25:26.717141] [09:25:26.717164] [09:25:26.717178] [09:25:26.717188] [09:25:26.717197] [09:25:26.717203] [09:25:26.717216] [09:25:26.717229] [09:25:26.717241] [09:25:26.717251] [09:25:26.717261] [09:25:26.717267] [09:25:26.717277] [09:25:26.717294] [09:25:26.717304] [09:25:26.717321] [09:25:26.717331] [09:25:26.717348] [09:25:26.717358] [09:25:26.717382] [09:25:26.717393] [09:25:26.717399] [09:25:26.717417] [09:25:26.717427] [09:25:26.717444] [09:25:26.717454] [09:25:26.717470] [09:25:26.717487] [09:25:26.717498] [09:25:26.717520] [09:25:26.717531] [09:25:26.717537] [09:25:26.717551] [09:25:26.717568] [09:25:26.717595] [09:25:26.717619] [09:25:26.717628] [09:25:26.717634] [09:25:26.717651] [09:25:26.717668] [09:25:26.717678] [09:25:26.717701] [09:25:26.717712] [09:25:26.717718] [09:25:26.717732] [09:25:26.717749] [09:25:26.717766] [09:25:26.717793] [09:25:26.717803] [09:25:26.717810] [09:25:26.717824] [09:25:26.717841] [09:25:26.717858] [09:25:26.717881] [09:25:26.717895] [09:25:26.717912] [09:25:26.717929] [09:25:26.717951] [09:25:26.717961] [09:25:26.717967] [09:25:26.717980] [09:25:26.717997] [09:25:26.718020] [09:25:26.718030] [09:25:26.718039] [09:25:26.718045] [09:25:26.718055] [09:25:26.718061] [09:25:26.718073] [09:25:26.718083] [09:25:26.718094] [09:25:26.718104] [09:25:26.718126] [09:25:26.718149] [09:25:26.718162] [09:25:26.718172] [09:25:26.718181] [09:25:26.718187] [09:25:26.718200] [09:25:26.718212] [09:25:26.718225] [09:25:26.718234] [09:25:26.718244] [09:25:26.718250] [09:25:26.718260] [09:25:26.718278] [09:25:26.718288] [09:25:26.718304] [09:25:26.718315] [09:25:26.718332] [09:25:26.718343] [09:25:26.718367] [09:25:26.718378] [09:25:26.718384] [09:25:26.718402] [09:25:26.718411] [09:25:26.718428] [09:25:26.718438] [09:25:26.718455] [09:25:26.718472] [09:25:26.718482] [09:25:26.718505] [09:25:26.718515] [09:25:26.718521] [09:25:26.718535] [09:25:26.718551] [09:25:26.718568] [09:25:26.718598] [09:25:26.718608] [09:25:26.718614] [09:25:26.718631] [09:25:26.718648] [09:25:26.718658] [09:25:26.718680] [09:25:26.718691] [09:25:26.718697] [09:25:26.718710] [09:25:26.718727] [09:25:26.718744] [09:25:26.718766] [09:25:26.718776] [09:25:26.718782] [09:25:26.718795] [09:25:26.718812] [09:25:26.718829] [09:25:26.718850] [09:25:26.718864] [09:25:26.718881] [09:25:26.718898] [09:25:26.718921] [09:25:26.718930] [09:25:26.718936] [09:25:26.718950] [09:25:26.718966] [09:25:26.718990] [09:25:26.719000] [09:25:26.719009] [09:25:26.719015] [09:25:26.719028] [09:25:26.719039] [09:25:27.091465] [09:25:27.091541] [09:25:27.091555] [09:25:27.091590] [09:25:27.091608] [09:25:27.091620] [09:25:27.112066] [09:25:27.112127] [09:25:27.112141] [09:25:27.112153] [09:25:27.112163] [09:25:27.112185] [09:25:27.112198] [09:25:27.112231] [09:25:27.112244] [09:25:27.112251] [09:25:27.112263] [09:25:27.112277] [09:25:27.112287] [09:25:27.112293] [09:25:27.112304] [09:25:27.112322] [09:25:27.112332] [09:25:27.112338] [09:25:27.112355] [09:25:27.112366] [09:25:27.112391] [09:25:27.112402] [09:25:27.112408] [09:25:27.112424] [09:25:27.112439] [09:25:27.112449] [09:25:27.112466] [09:25:27.112476] [09:25:27.112500] [09:25:27.112510] [09:25:27.112517] [09:25:27.112533] [09:25:27.112544] [09:25:27.112567] [09:25:27.112590] [09:25:27.112597] [09:25:27.112607] [09:25:27.112624] [09:25:27.112634] [09:25:27.112658] [09:25:27.112669] [09:25:27.112675] [09:25:27.112685] [09:25:27.112702] [09:25:27.112717] [09:25:27.112729] [09:25:27.112739] [09:25:27.112746] [09:25:27.112756] [09:25:27.112772] [09:25:27.112782] [09:25:27.112805] [09:25:27.112816] [09:25:27.112822] [09:25:27.112835] [09:25:27.112855] [09:25:27.112861] [09:25:27.112872] [09:25:27.112891] [09:25:27.112901] [09:25:27.112911] [09:25:27.112929] [09:25:27.112939] [09:25:27.112948] [09:25:27.112954] [09:25:27.112967] [09:25:27.112976] [09:25:27.682877] [09:25:27.682947] [09:25:27.682963] [09:25:27.682979] [09:25:27.682991] [09:25:27.683038] [09:25:27.683055] [09:25:27.683067] [09:25:27.743083] [09:25:27.743148] [09:25:27.743163] [09:25:27.743175] [09:25:27.743200] [09:25:27.743218] [09:25:27.743233] [09:25:27.743244] /root/miniconda3/envs/janusvln/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:628: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/root/autodl-tmp/JanusVLN/src/qwen_vl/model/modeling_qwen2_5_vl.py:2002: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(dtype=dtype):
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+scene 2azQ1b91cZZ:  33%|███▎      | 1/3 [00:53<01:46, 53.48s/it]2026-04-07 09:26:17,308 Video created: evaluation_30/vis_0/2azQ1b91cZZ_10.mp4
+
+  0%|          | 0/34 [00:00<?, ?it/s][Ahuggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1453, 480) to (1456, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+
+  3%|▎         | 1/34 [00:00<00:22,  1.44it/s][A
+  9%|▉         | 3/34 [00:00<00:06,  4.55it/s][A
+ 79%|███████▉  | 27/34 [00:00<00:00, 50.02it/s][A100%|██████████| 34/34 [00:00<00:00, 36.47it/s]
+[09:26:18.665416] scene_episode 2azQ1b91cZZ_10 success: 1.0, spl: 0.9810993415454013, os: 1.0, ne: 0.24487827718257904
+[09:26:18.665920] episode start:  Walk across the floor and wait the archway. 
+scene 2azQ1b91cZZ:  67%|██████▋   | 2/3 [01:45<00:52, 52.50s/it]2026-04-07 09:27:09,118 Video created: evaluation_30/vis_0/2azQ1b91cZZ_11.mp4
+
+  0%|          | 0/34 [00:00<?, ?it/s][AIMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1453, 480) to (1456, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+
+  3%|▎         | 1/34 [00:00<00:04,  7.97it/s][A
+ 15%|█▍        | 5/34 [00:00<00:01, 24.74it/s][A
+ 85%|████████▌ | 29/34 [00:00<00:00, 116.82it/s][A100%|██████████| 34/34 [00:00<00:00, 97.50it/s] 
+[09:27:09.912564] scene_episode 2azQ1b91cZZ_11 success: 1.0, spl: 0.9810993415454013, os: 1.0, ne: 0.24487827718257904
+[09:27:09.913003] episode start:  Move forward to the doorway on the opposite side of the hall.  Stop in the archway. 
+scene 2azQ1b91cZZ: 100%|██████████| 3/3 [02:36<00:00, 51.88s/it]2026-04-07 09:28:00,254 Video created: evaluation_30/vis_0/2azQ1b91cZZ_12.mp4
+
+  0%|          | 0/34 [00:00<?, ?it/s][AIMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1453, 480) to (1456, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+
+  3%|▎         | 1/34 [00:00<00:04,  7.13it/s][A
+  9%|▉         | 3/34 [00:00<00:02, 13.43it/s][A
+ 76%|███████▋  | 26/34 [00:00<00:00, 102.86it/s][A100%|██████████| 34/34 [00:00<00:00, 90.30it/s] 
+[09:28:01.076651] scene_episode 2azQ1b91cZZ_12 success: 1.0, spl: 0.9810993415454013, os: 1.0, ne: 0.24487827718257904
+[09:28:01.077082] scene_id = 8194nk5LbLH
+
+scene 8194nk5LbLH:   0%|          | 0/3 [00:00<?, ?it/s][Ascene 2azQ1b91cZZ: 100%|██████████| 3/3 [02:37<00:00, 52.42s/it]
+[09:28:01.077570] episode start:  Start in the middle of the large room head towards the door that leads to the outside, turn left and head up the stairs, take a hard left, stop when you are inside the workout room. 
+
+scene 8194nk5LbLH:  33%|███▎      | 1/3 [05:35<11:11, 335.60s/it][A2026-04-07 09:33:36,682 Video created: evaluation_30/vis_0/8194nk5LbLH_220.mp4
+  0%|          | 0/192 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1345, 480) to (1360, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+  1%|          | 1/192 [00:00<00:26,  7.34it/s]  3%|▎         | 5/192 [00:00<00:07, 24.00it/s] 16%|█▌        | 30/192 [00:00<00:01, 118.43it/s] 24%|██▍       | 47/192 [00:00<00:01, 123.09it/s] 34%|███▍      | 66/192 [00:00<00:00, 143.70it/s] 42%|████▏     | 81/192 [00:00<00:00, 126.82it/s] 49%|████▉     | 95/192 [00:00<00:00, 106.81it/s] 56%|█████▌    | 107/192 [00:01<00:00, 107.40it/s] 62%|██████▏   | 119/192 [00:01<00:00, 110.17it/s] 68%|██████▊   | 131/192 [00:01<00:00, 105.39it/s] 74%|███████▍  | 143/192 [00:01<00:00, 102.48it/s] 83%|████████▎ | 159/192 [00:01<00:00, 115.11it/s] 89%|████████▉ | 171/192 [00:01<00:00, 112.28it/s] 96%|█████████▋| 185/192 [00:01<00:00, 117.59it/s]100%|██████████| 192/192 [00:01<00:00, 108.34it/s]
+[09:33:38.990994] scene_episode 8194nk5LbLH_220 success: 1.0, spl: 0.3650250126288836, os: 1.0, ne: 2.0522422790527344
+[09:33:38.991578] episode start:  Walk towards the door and take a left. Go up the stairs. At the top of the stairs take a left into the fitness room. In the fitness room stop after you pass the door. 
+
+scene 8194nk5LbLH:  67%|██████▋   | 2/3 [08:32<04:02, 242.33s/it][A2026-04-07 09:36:33,726 Video created: evaluation_30/vis_0/8194nk5LbLH_221.mp4
+  0%|          | 0/103 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1345, 480) to (1360, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+  1%|          | 1/103 [00:00<00:13,  7.38it/s]  6%|▌         | 6/103 [00:00<00:03, 29.15it/s] 31%|███       | 32/103 [00:00<00:00, 124.96it/s] 46%|████▌     | 47/103 [00:00<00:00, 122.18it/s] 64%|██████▍   | 66/103 [00:00<00:00, 143.50it/s] 79%|███████▊  | 81/103 [00:00<00:00, 119.78it/s] 91%|█████████▏| 94/103 [00:00<00:00, 122.00it/s]100%|██████████| 103/103 [00:00<00:00, 109.80it/s]
+[09:36:35.171116] scene_episode 8194nk5LbLH_221 success: 1.0, spl: 0.8031168895750949, os: 1.0, ne: 1.8819595575332642
+[09:36:35.171830] episode start:  Walk towards the door that leads to outside and then turn left before the door. Go up the staircase straight ahead. At the top of the stairs go into the weight room and wait there. 
+
+scene 8194nk5LbLH: 100%|██████████| 3/3 [14:42<00:00, 300.55s/it][A2026-04-07 09:42:43,555 Video created: evaluation_30/vis_0/8194nk5LbLH_222.mp4
+  0%|          | 0/210 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1345, 480) to (1360, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+  0%|          | 1/210 [00:00<00:28,  7.31it/s]  3%|▎         | 6/210 [00:00<00:07, 28.84it/s] 15%|█▍        | 31/210 [00:00<00:01, 120.11it/s] 22%|██▏       | 47/210 [00:00<00:01, 124.04it/s] 32%|███▏      | 67/210 [00:00<00:01, 136.39it/s] 39%|███▊      | 81/210 [00:00<00:01, 122.22it/s] 45%|████▍     | 94/210 [00:00<00:00, 117.27it/s] 50%|█████     | 106/210 [00:00<00:00, 108.58it/s] 56%|█████▌    | 118/210 [00:01<00:00, 109.43it/s] 62%|██████▏   | 130/210 [00:01<00:00, 104.91it/s] 67%|██████▋   | 141/210 [00:01<00:00, 105.73it/s] 72%|███████▏  | 152/210 [00:01<00:00, 101.33it/s] 81%|████████  | 170/210 [00:01<00:00, 121.23it/s] 87%|████████▋ | 183/210 [00:01<00:00, 120.32it/s] 93%|█████████▎| 196/210 [00:01<00:00, 112.30it/s] 99%|█████████▉| 208/210 [00:01<00:00, 109.77it/s]100%|██████████| 210/210 [00:01<00:00, 109.33it/s]
+[09:42:45.973366] scene_episode 8194nk5LbLH_222 success: 1.0, spl: 0.4032290098208708, os: 1.0, ne: 2.0106701850891113
+[09:42:45.973911] scene_id = EU6Fwq7SyZv
+scene EU6Fwq7SyZv:   0%|          | 0/3 [00:00<?, ?it/s]scene 8194nk5LbLH: 100%|██████████| 3/3 [14:44<00:00, 294.97s/it]
+[09:42:45.974394] episode start:  Turn around 180 degrees.  Go through the open door to the loft.  Once through the doorway, turn to the left and walk towards the far side of the loft.  Stop once you are just past the opening to the stairs. 
+scene EU6Fwq7SyZv:  33%|███▎      | 1/3 [01:17<02:34, 77.16s/it]2026-04-07 09:44:03,140 Video created: evaluation_30/vis_0/EU6Fwq7SyZv_127.mp4
+
+  0%|          | 0/46 [00:00<?, ?it/s][AIMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1233, 480) to (1248, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+
+  2%|▏         | 1/46 [00:00<00:06,  6.98it/s][A
+ 17%|█▋        | 8/46 [00:00<00:01, 37.94it/s][A
+ 78%|███████▊  | 36/46 [00:00<00:00, 135.97it/s][A100%|██████████| 46/46 [00:00<00:00, 118.93it/s]
+[09:44:04.057287] scene_episode EU6Fwq7SyZv_127 success: 1.0, spl: 0.9071353473620075, os: 1.0, ne: 2.94051456451416
+[09:44:04.057879] episode start:  Turn around and leave the bathroom.  Go into the bedroom.  Turn left and go down the hallway to the left.  You'll stop by the big cabinet on the left. 
+scene EU6Fwq7SyZv:  67%|██████▋   | 2/3 [02:28<01:13, 73.71s/it]2026-04-07 09:45:14,432 Video created: evaluation_30/vis_0/EU6Fwq7SyZv_128.mp4
+
+  0%|          | 0/45 [00:00<?, ?it/s][AIMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1233, 480) to (1248, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+
+  2%|▏         | 1/45 [00:00<00:06,  7.05it/s][A
+ 18%|█▊        | 8/45 [00:00<00:00, 38.46it/s][A
+ 78%|███████▊  | 35/45 [00:00<00:00, 133.06it/s][A100%|██████████| 45/45 [00:00<00:00, 116.70it/s]
+[09:45:15.358695] scene_episode EU6Fwq7SyZv_128 success: 0.0, spl: 0.0, os: 0.0, ne: 3.789423942565918
+[09:45:15.360004] episode start:  Go into the bedroom to the right of the sink.  Turn left, and walk forward and stand in front of the railing about halfway between the two upstairs rooms. 
+scene EU6Fwq7SyZv: 100%|██████████| 3/3 [05:18<00:00, 117.63s/it]2026-04-07 09:48:04,323 Video created: evaluation_30/vis_0/EU6Fwq7SyZv_129.mp4
+
+  0%|          | 0/101 [00:00<?, ?it/s][AIMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1233, 480) to (1248, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+
+  1%|          | 1/101 [00:00<00:13,  7.17it/s][A
+  8%|▊         | 8/101 [00:00<00:02, 38.22it/s][A
+ 34%|███▎      | 34/101 [00:00<00:00, 128.45it/s][A
+ 48%|████▊     | 48/101 [00:00<00:00, 127.86it/s][A
+ 65%|██████▌   | 66/101 [00:00<00:00, 143.48it/s][A
+ 80%|████████  | 81/101 [00:00<00:00, 120.49it/s][A
+ 93%|█████████▎| 94/101 [00:00<00:00, 115.74it/s][A100%|██████████| 101/101 [00:00<00:00, 113.37it/s]
+[09:48:05.660059] scene_episode EU6Fwq7SyZv_129 success: 1.0, spl: 0.44507847376130405, os: 1.0, ne: 2.7108349800109863
+[09:48:05.660562] scene_id = QUCTc6BB5sX
+
+scene QUCTc6BB5sX:   0%|          | 0/3 [00:00<?, ?it/s][Ascene EU6Fwq7SyZv: 100%|██████████| 3/3 [05:19<00:00, 106.56s/it]
+[09:48:05.661064] episode start:  Walk through the living room around the backside of the couches. Walk into the kitchen area and walk along the barstools and countertop. Continue ahead towards the arched entryway that leads to a hall beside the stairs. 
+
+scene QUCTc6BB5sX:  33%|███▎      | 1/3 [02:14<04:29, 134.64s/it][A2026-04-07 09:50:20,299 Video created: evaluation_30/vis_0/QUCTc6BB5sX_19.mp4
+  0%|          | 0/78 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1375, 480) to (1376, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+  1%|▏         | 1/78 [00:00<00:10,  7.20it/s]  9%|▉         | 7/78 [00:00<00:02, 33.39it/s] 42%|████▏     | 33/78 [00:00<00:00, 126.39it/s] 60%|██████    | 47/78 [00:00<00:00, 125.66it/s] 85%|████████▍ | 66/78 [00:00<00:00, 143.72it/s]100%|██████████| 78/78 [00:00<00:00, 113.46it/s]
+[09:50:21.472963] scene_episode QUCTc6BB5sX_19 success: 0.0, spl: 0.0, os: 0.0, ne: 5.482060432434082
+[09:50:21.473436] episode start:  Walk behind the couch towards the kitchen. Enter the kitchen.  Walk towards the doors that go outside.  Turn left when you reach the doors. Walk down the hallway past the kitchen.  Stop where the four hallways intersect. 
+
+scene QUCTc6BB5sX:  67%|██████▋   | 2/3 [05:14<02:41, 161.15s/it][A2026-04-07 09:53:20,005 Video created: evaluation_30/vis_0/QUCTc6BB5sX_20.mp4
+  0%|          | 0/106 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1375, 480) to (1376, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+  1%|          | 1/106 [00:00<00:15,  6.66it/s]  7%|▋         | 7/106 [00:00<00:03, 32.12it/s] 31%|███       | 33/106 [00:00<00:00, 122.70it/s] 44%|████▍     | 47/106 [00:00<00:00, 122.03it/s] 61%|██████▏   | 65/106 [00:00<00:00, 141.04it/s] 75%|███████▌  | 80/106 [00:00<00:00, 133.54it/s] 89%|████████▊ | 94/106 [00:00<00:00, 109.41it/s]100%|██████████| 106/106 [00:00<00:00, 111.67it/s]100%|██████████| 106/106 [00:00<00:00, 108.17it/s]
+[09:53:21.469246] scene_episode QUCTc6BB5sX_20 success: 1.0, spl: 0.8860348281503055, os: 1.0, ne: 0.9635999798774719
+[09:53:21.469756] episode start:  Head diagonally through the kitchen, stop at the edge of the kitchen table, turn left and stop in the middle of the room near a vase on the floor. 
+
+scene QUCTc6BB5sX: 100%|██████████| 3/3 [07:36<00:00, 152.31s/it][A2026-04-07 09:55:41,789 Video created: evaluation_30/vis_0/QUCTc6BB5sX_21.mp4
+  0%|          | 0/85 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1375, 480) to (1376, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+  1%|          | 1/85 [00:00<00:12,  6.91it/s]  7%|▋         | 6/85 [00:00<00:02, 28.08it/s] 38%|███▊      | 32/85 [00:00<00:00, 121.97it/s] 55%|█████▌    | 47/85 [00:00<00:00, 123.90it/s] 78%|███████▊  | 66/85 [00:00<00:00, 144.42it/s] 95%|█████████▌| 81/85 [00:00<00:00, 130.92it/s]100%|██████████| 85/85 [00:00<00:00, 108.50it/s]
+[09:55:43.068815] scene_episode QUCTc6BB5sX_21 success: 1.0, spl: 0.9491267422413285, os: 1.0, ne: 0.9717981219291687
+[09:55:43.069295] scene_id = TbHJrupSAjP
+scene TbHJrupSAjP:   0%|          | 0/3 [00:00<?, ?it/s]scene QUCTc6BB5sX: 100%|██████████| 3/3 [07:37<00:00, 152.47s/it]
+[09:55:43.069788] episode start:  Walk up the flight of stairs to the top. Turn and follow the railing into the bedroom area. Walk towards the closet. 
+scene TbHJrupSAjP:  33%|███▎      | 1/3 [02:53<05:46, 173.49s/it]2026-04-07 09:58:36,564 Video created: evaluation_30/vis_0/TbHJrupSAjP_4.mp4
+
+  0%|          | 0/103 [00:00<?, ?it/s][AIMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1122, 480) to (1136, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+
+  1%|          | 1/103 [00:00<00:15,  6.40it/s][A
+ 10%|▉         | 10/103 [00:00<00:02, 45.86it/s][A
+ 38%|███▊      | 39/103 [00:00<00:00, 144.27it/s][A
+ 54%|█████▍    | 56/103 [00:00<00:00, 142.73it/s][A
+ 70%|██████▉   | 72/103 [00:00<00:00, 136.19it/s][A
+ 85%|████████▌ | 88/103 [00:00<00:00, 141.63it/s][A
+100%|██████████| 103/103 [00:00<00:00, 141.31it/s][A100%|██████████| 103/103 [00:00<00:00, 125.94it/s]
+[09:58:37.848210] scene_episode TbHJrupSAjP_4 success: 0.0, spl: 0.0, os: 0.0, ne: 5.228887557983398
+[09:58:37.848727] episode start:  Go up the stairs, and then turn around and go through the door past the stairs. Walk up to the bed, then turn to the right and walk into the doorway. Stop there. 
+scene TbHJrupSAjP:  67%|██████▋   | 2/3 [05:21<02:38, 158.26s/it]2026-04-07 10:01:04,159 Video created: evaluation_30/vis_0/TbHJrupSAjP_5.mp4
+
+  0%|          | 0/90 [00:00<?, ?it/s][AIMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1122, 480) to (1136, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+
+  1%|          | 1/90 [00:00<00:13,  6.69it/s][A
+ 10%|█         | 9/90 [00:00<00:01, 42.43it/s][A
+ 42%|████▏     | 38/90 [00:00<00:00, 143.02it/s][A
+ 60%|██████    | 54/90 [00:00<00:00, 139.18it/s][A
+ 77%|███████▋  | 69/90 [00:00<00:00, 141.83it/s][A
+ 93%|█████████▎| 84/90 [00:00<00:00, 135.50it/s][A100%|██████████| 90/90 [00:00<00:00, 122.92it/s]
+[10:01:05.286673] scene_episode TbHJrupSAjP_5 success: 0.0, spl: 0.0, os: 0.0, ne: 3.2452664375305176
+[10:01:05.287209] episode start:  WALK UP THE STAIRS, TURN TO THE LEFT AND ENTER INTO THE SECOND OPEN DOOR ON THE LEFT, WALK TOWARDS THE FOOT OF THE BED, TURN RIGHT AND ENTER THE OPEN DOOR TO THE BATHROOM. 
+scene TbHJrupSAjP: 100%|██████████| 3/3 [07:53<00:00, 155.74s/it]2026-04-07 10:03:36,901 Video created: evaluation_30/vis_0/TbHJrupSAjP_6.mp4
+
+  0%|          | 0/93 [00:00<?, ?it/s][AIMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1122, 480) to (1136, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+
+  1%|          | 1/93 [00:00<00:13,  6.87it/s][A
+ 10%|▉         | 9/93 [00:00<00:01, 42.76it/s][A
+ 41%|████      | 38/93 [00:00<00:00, 142.91it/s][A
+ 58%|█████▊    | 54/93 [00:00<00:00, 140.88it/s][A
+ 76%|███████▋  | 71/93 [00:00<00:00, 149.59it/s][A
+ 94%|█████████▎| 87/93 [00:00<00:00, 142.10it/s][A100%|██████████| 93/93 [00:00<00:00, 125.28it/s]
+[10:03:38.059104] scene_episode TbHJrupSAjP_6 success: 0.0, spl: 0.0, os: 0.0, ne: 7.613795280456543
+[10:03:38.059653] scene_id = X7HyMhZNoso
+
+scene X7HyMhZNoso:   0%|          | 0/3 [00:00<?, ?it/s][Ascene TbHJrupSAjP: 100%|██████████| 3/3 [07:54<00:00, 158.33s/it]
+[10:03:38.060118] episode start:  Finish climbing the stairs and walk straight through the doorway in front of you.  You'll be a bedroom at that point.  Turn right and walk across the room next to the bed to the doorway on your right.  Turn right and walk though the closet into the bathroom.  Stop in front of the toilet in the bathroom. 
+
+scene X7HyMhZNoso:  33%|███▎      | 1/3 [05:00<10:01, 300.70s/it][A2026-04-07 10:08:38,757 Video created: evaluation_30/vis_0/X7HyMhZNoso_46.mp4
+  0%|          | 0/172 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1465, 480) to (1472, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+  1%|          | 1/172 [00:00<00:25,  6.70it/s]  3%|▎         | 6/172 [00:00<00:06, 27.44it/s] 18%|█▊        | 31/172 [00:00<00:01, 117.01it/s] 27%|██▋       | 47/172 [00:00<00:01, 121.58it/s] 40%|████      | 69/172 [00:00<00:00, 149.65it/s] 49%|████▉     | 85/172 [00:00<00:00, 137.35it/s] 58%|█████▊    | 100/172 [00:00<00:00, 130.25it/s] 67%|██████▋   | 115/172 [00:00<00:00, 123.51it/s] 77%|███████▋  | 132/172 [00:01<00:00, 135.23it/s] 85%|████████▍ | 146/172 [00:01<00:00, 136.49it/s] 93%|█████████▎| 160/172 [00:01<00:00, 133.19it/s]100%|██████████| 172/172 [00:01<00:00, 122.71it/s]
+[10:08:40.604655] scene_episode X7HyMhZNoso_46 success: 1.0, spl: 0.6801988621120346, os: 1.0, ne: 1.0987186431884766
+[10:08:40.605216] episode start:  Turn left and continue up the stairs.  Go straight through to the bedroom, turn to the right and walk past the bed.  Turn right again and go through the closet.  Continue straight, into the bathroom.  Wait right there, in front of the mirror. 
+
+scene X7HyMhZNoso:  67%|██████▋   | 2/3 [09:37<04:46, 286.69s/it][A2026-04-07 10:13:15,650 Video created: evaluation_30/vis_0/X7HyMhZNoso_47.mp4
+  0%|          | 0/159 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1465, 480) to (1472, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+  1%|          | 1/159 [00:00<00:23,  6.63it/s]  3%|▎         | 5/159 [00:00<00:06, 22.38it/s] 17%|█▋        | 27/159 [00:00<00:01, 102.04it/s] 30%|██▉       | 47/159 [00:00<00:00, 114.69it/s] 41%|████      | 65/159 [00:00<00:00, 133.05it/s] 50%|████▉     | 79/159 [00:00<00:00, 128.35it/s] 58%|█████▊    | 93/159 [00:00<00:00, 129.41it/s] 67%|██████▋   | 107/159 [00:00<00:00, 124.72it/s] 80%|███████▉  | 127/159 [00:01<00:00, 144.74it/s] 90%|████████▉ | 143/159 [00:01<00:00, 146.15it/s]100%|██████████| 159/159 [00:01<00:00, 127.08it/s]
+[10:13:17.306953] scene_episode X7HyMhZNoso_47 success: 0.0, spl: 0.0, os: 0.0, ne: 10.717670440673828
+[10:13:17.307456] episode start:  Go up the stairs and straight forward through the doorway. Turn right, move forward, and enter the doorway on the right. Move forward into the bathroom and stop in front of the toilet. 
+
+scene X7HyMhZNoso: 100%|██████████| 3/3 [11:52<00:00, 217.59s/it][A2026-04-07 10:15:31,010 Video created: evaluation_30/vis_0/X7HyMhZNoso_48.mp4
+  0%|          | 0/81 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1465, 480) to (1472, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+  1%|          | 1/81 [00:00<00:11,  6.82it/s]  6%|▌         | 5/81 [00:00<00:03, 23.05it/s] 37%|███▋      | 30/81 [00:00<00:00, 115.18it/s] 58%|█████▊    | 47/81 [00:00<00:00, 122.26it/s] 84%|████████▍ | 68/81 [00:00<00:00, 149.10it/s]100%|██████████| 81/81 [00:00<00:00, 116.59it/s]
+[10:15:32.130866] scene_episode X7HyMhZNoso_48 success: 1.0, spl: 0.9383540219894496, os: 1.0, ne: 1.0768632888793945
+[10:15:32.131318] scene_id = Z6MFQCViBuw
+scene Z6MFQCViBuw:   0%|          | 0/3 [00:00<?, ?it/s]scene X7HyMhZNoso: 100%|██████████| 3/3 [11:54<00:00, 238.02s/it]
+[10:15:32.131828] episode start:  Turn towards a large wooden manel, go forward through a doorway and continue down a red carpet between rope barriers until you reach the next doorway, facing a large bed,and stop. 
+scene Z6MFQCViBuw:  33%|███▎      | 1/3 [01:30<03:00, 90.04s/it]2026-04-07 10:17:02,173 Video created: evaluation_30/vis_0/Z6MFQCViBuw_205.mp4
+
+  0%|          | 0/53 [00:00<?, ?it/s][AIMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1365, 480) to (1376, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+
+  2%|▏         | 1/53 [00:00<00:07,  6.69it/s][A
+ 11%|█▏        | 6/53 [00:00<00:01, 27.35it/s][A
+ 58%|█████▊    | 31/53 [00:00<00:00, 117.17it/s][A
+ 89%|████████▊ | 47/53 [00:00<00:00, 123.01it/s][A100%|██████████| 53/53 [00:00<00:00, 105.79it/s]
+[10:17:03.170282] scene_episode Z6MFQCViBuw_205 success: 0.0, spl: 0.0, os: 0.0, ne: 21.74382972717285
+[10:17:03.170732] episode start:  Turn around. Walk down the long hallway until you reach the room with the red canopy bed. 
+scene Z6MFQCViBuw:  67%|██████▋   | 2/3 [03:17<01:40, 100.18s/it]2026-04-07 10:18:49,449 Video created: evaluation_30/vis_0/Z6MFQCViBuw_206.mp4
+
+  0%|          | 0/67 [00:00<?, ?it/s][AIMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1365, 480) to (1376, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+
+  1%|▏         | 1/67 [00:00<00:09,  6.82it/s][A
+ 10%|█         | 7/67 [00:00<00:01, 32.53it/s][A
+ 49%|████▉     | 33/67 [00:00<00:00, 124.06it/s][A
+ 70%|███████   | 47/67 [00:00<00:00, 126.23it/s][A
+ 94%|█████████▍| 63/67 [00:00<00:00, 133.43it/s][A100%|██████████| 67/67 [00:00<00:00, 109.47it/s]
+[10:18:50.576745] scene_episode Z6MFQCViBuw_206 success: 1.0, spl: 0.8521713768447626, os: 1.0, ne: 1.9945785999298096
+[10:18:50.577218] episode start:  Walk out of the room keeping the fireplace on your left. Walk down the long corridor and stop once you reach the next set of doors. 
+scene Z6MFQCViBuw: 100%|██████████| 3/3 [04:36<00:00, 90.74s/it] 2026-04-07 10:20:08,963 Video created: evaluation_30/vis_0/Z6MFQCViBuw_207.mp4
+
+  0%|          | 0/51 [00:00<?, ?it/s][AIMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1365, 480) to (1376, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+
+  2%|▏         | 1/51 [00:00<00:07,  6.44it/s][A
+ 12%|█▏        | 6/51 [00:00<00:01, 27.24it/s][A
+ 61%|██████    | 31/51 [00:00<00:00, 117.46it/s][A
+ 92%|█████████▏| 47/51 [00:00<00:00, 123.03it/s][A100%|██████████| 51/51 [00:00<00:00, 102.97it/s]
+[10:20:09.956097] scene_episode Z6MFQCViBuw_207 success: 0.0, spl: 0.0, os: 0.0, ne: 22.07048225402832
+[10:20:09.956559] scene_id = oLBMNvg9in8
+
+scene oLBMNvg9in8:   0%|          | 0/3 [00:00<?, ?it/s][Ascene Z6MFQCViBuw: 100%|██████████| 3/3 [04:37<00:00, 92.61s/it]
+[10:20:09.957045] episode start:  Exit the room through the door on the right. Walk past the stairs and the bathroom and enter the room with the cardboard boxes. Stop by the doorway on the left that leads to the living room. 
+
+scene oLBMNvg9in8:  33%|███▎      | 1/3 [01:15<02:30, 75.19s/it][A2026-04-07 10:21:25,152 Video created: evaluation_30/vis_0/oLBMNvg9in8_28.mp4
+  0%|          | 0/44 [00:00<?, ?it/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+  2%|▏         | 1/44 [00:00<00:06,  6.71it/s] 36%|███▋      | 16/44 [00:00<00:00, 76.29it/s]100%|██████████| 44/44 [00:00<00:00, 158.94it/s]100%|██████████| 44/44 [00:00<00:00, 124.98it/s]
+[10:21:25.959786] scene_episode oLBMNvg9in8_28 success: 0.0, spl: 0.0, os: 0.0, ne: 6.869588375091553
+[10:21:25.960210] episode start:  Turn around and go through the single door on the right.  Go down the hallway.  You'll go all the way into the room and stand on the rug and wait. 
+
+scene oLBMNvg9in8:  67%|██████▋   | 2/3 [02:58<01:31, 91.71s/it][A2026-04-07 10:23:08,427 Video created: evaluation_30/vis_0/oLBMNvg9in8_29.mp4
+  0%|          | 0/63 [00:00<?, ?it/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+  2%|▏         | 1/63 [00:00<00:09,  6.77it/s] 21%|██        | 13/63 [00:00<00:00, 62.26it/s] 65%|██████▌   | 41/63 [00:00<00:00, 151.07it/s] 92%|█████████▏| 58/63 [00:00<00:00, 148.71it/s]100%|██████████| 63/63 [00:00<00:00, 125.57it/s]
+[10:23:09.373567] scene_episode oLBMNvg9in8_29 success: 0.0, spl: 0.0, os: 0.0, ne: 8.881223678588867
+[10:23:09.374019] episode start:  go through the dooorway on the right, continue straightacross the hallway and into the room ahead. Stop near the shell. 
+
+scene oLBMNvg9in8: 100%|██████████| 3/3 [04:33<00:00, 93.26s/it][A2026-04-07 10:24:43,518 Video created: evaluation_30/vis_0/oLBMNvg9in8_30.mp4
+  0%|          | 0/58 [00:00<?, ?it/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+  2%|▏         | 1/58 [00:00<00:08,  6.73it/s] 28%|██▊       | 16/58 [00:00<00:00, 75.83it/s] 76%|███████▌  | 44/58 [00:00<00:00, 158.67it/s]100%|██████████| 58/58 [00:00<00:00, 125.77it/s]
+[10:24:44.465260] scene_episode oLBMNvg9in8_30 success: 0.0, spl: 0.0, os: 0.0, ne: 8.88498306274414
+[10:24:44.465710] scene_id = pLe4wQe7qrG
+scene pLe4wQe7qrG:   0%|          | 0/3 [00:00<?, ?it/s]scene oLBMNvg9in8: 100%|██████████| 3/3 [04:34<00:00, 91.50s/it]
+[10:24:44.466173] episode start:  Walk past altar book stands. Wait under wooden rafter. 
+scene pLe4wQe7qrG:  33%|███▎      | 1/3 [01:01<02:03, 61.55s/it]2026-04-07 10:25:46,020 Video created: evaluation_30/vis_0/pLe4wQe7qrG_412.mp4
+
+  0%|          | 0/37 [00:00<?, ?it/s][AIMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1365, 480) to (1376, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+
+  3%|▎         | 1/37 [00:00<00:06,  5.68it/s][A
+ 16%|█▌        | 6/37 [00:00<00:01, 25.05it/s][A
+ 76%|███████▌  | 28/37 [00:00<00:00, 99.36it/s][A100%|██████████| 37/37 [00:00<00:00, 87.35it/s]
+[10:25:46.909500] scene_episode pLe4wQe7qrG_412 success: 0.0, spl: 0.0, os: 1.0, ne: 3.401536226272583
+[10:25:46.910013] episode start:  Go through the archway to the right, and walk to the podium. 
+scene pLe4wQe7qrG:  67%|██████▋   | 2/3 [02:37<01:21, 81.90s/it]2026-04-07 10:27:22,165 Video created: evaluation_30/vis_0/pLe4wQe7qrG_413.mp4
+
+  0%|          | 0/56 [00:00<?, ?it/s][AIMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1365, 480) to (1376, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+
+  2%|▏         | 1/56 [00:00<00:08,  6.70it/s][A
+ 11%|█         | 6/56 [00:00<00:01, 27.44it/s][A
+ 54%|█████▎    | 30/56 [00:00<00:00, 112.73it/s][A
+ 84%|████████▍ | 47/56 [00:00<00:00, 121.79it/s][A100%|██████████| 56/56 [00:00<00:00, 107.64it/s]
+[10:27:23.192401] scene_episode pLe4wQe7qrG_413 success: 0.0, spl: 0.0, os: 0.0, ne: 5.639717102050781
+[10:27:23.192923] episode start:  Walk down the aisle to your right, and walk forward. Take the first right and stop between the first two pillars. 
+scene pLe4wQe7qrG: 100%|██████████| 3/3 [05:37<00:00, 126.78s/it]2026-04-07 10:30:22,343 Video created: evaluation_30/vis_0/pLe4wQe7qrG_414.mp4
+
+  0%|          | 0/100 [00:00<?, ?it/s][AIMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1365, 480) to (1376, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+
+  1%|          | 1/100 [00:00<00:14,  6.65it/s][A
+  6%|▌         | 6/100 [00:00<00:03, 27.54it/s][A
+ 31%|███       | 31/100 [00:00<00:00, 118.00it/s][A
+ 47%|████▋     | 47/100 [00:00<00:00, 124.26it/s][A
+ 64%|██████▍   | 64/100 [00:00<00:00, 135.91it/s][A
+ 79%|███████▉  | 79/100 [00:00<00:00, 111.93it/s][A
+ 92%|█████████▏| 92/100 [00:00<00:00, 114.39it/s][A100%|██████████| 100/100 [00:00<00:00, 104.16it/s]
+[10:30:23.829549] scene_episode pLe4wQe7qrG_414 success: 1.0, spl: 0.3635427822982089, os: 1.0, ne: 1.4381102323532104
+[10:30:23.830103] scene_id = x8F5xyUWy9e
+
+scene x8F5xyUWy9e:   0%|          | 0/3 [00:00<?, ?it/s][Ascene pLe4wQe7qrG: 100%|██████████| 3/3 [05:39<00:00, 113.12s/it]
+[10:30:23.830596] episode start:  Go straight past the pool. Walk between the bar and chairs.  Stop when you get to the corner of the bar.  That's where you will wait. 
+
+scene x8F5xyUWy9e:  33%|███▎      | 1/3 [01:17<02:35, 77.57s/it][A2026-04-07 10:31:41,406 Video created: evaluation_30/vis_0/x8F5xyUWy9e_7.mp4
+  0%|          | 0/52 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1169, 480) to (1184, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+  2%|▏         | 1/52 [00:00<00:07,  6.85it/s] 15%|█▌        | 8/52 [00:00<00:01, 37.73it/s] 69%|██████▉   | 36/52 [00:00<00:00, 137.33it/s]100%|██████████| 52/52 [00:00<00:00, 140.54it/s]100%|██████████| 52/52 [00:00<00:00, 113.40it/s]
+[10:31:42.305705] scene_episode x8F5xyUWy9e_7 success: 1.0, spl: 1.0, os: 1.0, ne: 1.6260380744934082
+[10:31:42.306296] episode start:  Walk across the room and wait at the far end of the bar. 
+
+scene x8F5xyUWy9e:  67%|██████▋   | 2/3 [02:43<01:22, 82.46s/it][A2026-04-07 10:33:07,293 Video created: evaluation_30/vis_0/x8F5xyUWy9e_8.mp4
+  0%|          | 0/57 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1169, 480) to (1184, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+  2%|▏         | 1/57 [00:00<00:08,  6.93it/s] 16%|█▌        | 9/57 [00:00<00:01, 42.92it/s] 63%|██████▎   | 36/57 [00:00<00:00, 135.64it/s] 89%|████████▉ | 51/57 [00:00<00:00, 136.44it/s]100%|██████████| 57/57 [00:00<00:00, 118.37it/s]
+[10:33:08.251352] scene_episode x8F5xyUWy9e_8 success: 1.0, spl: 1.0, os: 1.0, ne: 1.1318409442901611
+[10:33:08.251913] episode start:  Go forward one meter
+Go to the chairs
+Go to the steps
+Go to the endtable
+Go to the tan door. 
+
+scene x8F5xyUWy9e: 100%|██████████| 3/3 [04:09<00:00, 84.01s/it][A2026-04-07 10:34:33,147 Video created: evaluation_30/vis_0/x8F5xyUWy9e_9.mp4
+  0%|          | 0/57 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (1169, 480) to (1184, 480) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+  2%|▏         | 1/57 [00:00<00:08,  6.89it/s] 16%|█▌        | 9/57 [00:00<00:01, 42.77it/s] 65%|██████▍   | 37/57 [00:00<00:00, 140.34it/s] 93%|█████████▎| 53/57 [00:00<00:00, 140.39it/s]100%|██████████| 57/57 [00:00<00:00, 119.39it/s]
+[10:34:34.121996] scene_episode x8F5xyUWy9e_9 success: 0.0, spl: 0.0, os: 0.0, ne: 8.253927230834961
+scene x8F5xyUWy9e: 100%|██████████| 3/3 [04:10<00:00, 83.44s/it]
+[10:34:34.155612] {'sucs_all': 0.5333333611488342, 'spls_all': 0.41787704571401507, 'oss_all': 0.5666667222976685, 'ones_all': 4.815159797668457, 'length': 30}
+[rank0]:[W407 10:34:34.455565250 ProcessGroupNCCL.cpp:1250] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
