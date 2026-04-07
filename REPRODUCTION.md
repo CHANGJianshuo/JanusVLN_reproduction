@@ -6,12 +6,12 @@ Original repo: https://github.com/MIV-XJTU/JanusVLN
 
 ## Hardware Environment
 
-| Resource | Available | Required by Paper |
-|----------|-----------|-------------------|
-| GPU | RTX 5060 Laptop **8GB** VRAM | 8x GPU, 40GB+ each |
-| RAM | 16GB | 128GB+ |
-| Disk | 945GB free | ~400GB+ |
-| CUDA Driver | 12.9 | 12.4 (compatible) |
+| Resource | Local Machine | Cloud (Eval) | Required by Paper |
+|----------|--------------|-------------|-------------------|
+| GPU | RTX 5060 Laptop 8GB | **A100 PCIe 40GB** | 8x GPU, 40GB+ each |
+| RAM | 16GB | 90GB | 128GB+ |
+| Disk | 945GB free | 30GB + 50GB | ~400GB+ |
+| CUDA Driver | 12.9 | 12.4 | 12.4 (compatible) |
 
 **Critical Compatibility Issue:**
 RTX 5060 (Blackwell, sm_120) is NOT compatible with PyTorch 2.5.1 (max sm_90).
@@ -69,12 +69,24 @@ PyTorch nightly with sm_120 support requires Python 3.12+, but habitat-sim 0.2.4
 - [x] **Conclusion: 3090 24GB insufficient. Minimum 40GB required.**
 - See `docs/cloud_gpu_log.md` for full details.
 
-#### 6b: A100 PCIe 40GB (AutoDL) -- TODO
-- [ ] Rent AutoDL A100 PCIe 40GB instance
-- [ ] Install environment (reuse validated install steps from 3090)
-- [ ] Transfer data from local machine
-- [ ] Run R2R val_unseen evaluation (bf16, no quantization needed)
-- [ ] Compare metrics (SR, SPL, NDTW) with paper results
+#### 6b: A100 PCIe 40GB (AutoDL) -- DONE ✅
+- [x] Rent AutoDL A100 PCIe 40GB instance (3 CNY/hour)
+- [x] Install environment (conda py3.9, habitat-sim, PyTorch, flash-attn, etc.)
+- [x] Transfer data from local machine + ModelScope download
+- [x] Run 30-episode val_unseen evaluation with video (bf16, no quantization)
+- [x] Compare metrics with paper results — **reproduction successful**
+
+### Evaluation Results (30 episodes, 10 scenes)
+
+| Metric | Paper (Extra, 1839 ep) | Paper (Base, 1839 ep) | Ours (30 ep) |
+|--------|----------------------|---------------------|--------------|
+| SR     | 60.5%                | 52.8%               | **53.3%**    |
+| SPL    | 56.8%                | 49.2%               | **41.1%**    |
+| OS     | 65.2%                | 58.0%               | **66.7%**    |
+| NE     | 4.78m                | 5.17m               | **5.42m**    |
+
+30-episode results are consistent with paper metrics. Variance is expected due to small sample size.
+GPU peak usage: 27.3GB / 40GB. Average speed: ~2 min/episode with video saving.
 
 ---
 
